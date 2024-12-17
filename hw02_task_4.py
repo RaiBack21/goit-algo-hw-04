@@ -17,6 +17,12 @@ def show_contact(args, contacts):
     name = args[0]
     return contacts[name]
 
+def all_contacts(contacts):
+    result = ''
+    for name, phone in contacts.items():
+        result += f"{name} - {phone} \n"
+    return result
+
 
 def main():
     contacts = {}
@@ -37,8 +43,7 @@ def main():
         elif command == "phone":
             print(show_contact(args, contacts))
         elif command == "all":
-            for name, phone in contacts.items():
-                print(name, phone)
+            print(all_contacts(contacts))
         else:
             print("Invalid command.")
 
